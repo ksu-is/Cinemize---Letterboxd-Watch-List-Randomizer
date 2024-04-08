@@ -14,5 +14,3 @@ Cinemize scrapes a user’s Letterboxd web page immediately after the user enter
 ## Credits
 
 A special thanks to Cristiano (https://github.com/cristianooo1/Letterboxd-watchlist-scraper) for creating a Letterboxd Watchlist scraper that will be modified to aid in making Cinimize. 
-
-testing testing
