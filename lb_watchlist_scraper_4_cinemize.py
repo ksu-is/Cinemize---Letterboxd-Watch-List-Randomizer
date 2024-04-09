@@ -38,16 +38,6 @@ def getting_user_watchlist(username):
             image = li.find('img')
             title = image.attrs['alt']
             poster_url = image.attrs['src']
-
-            # Extract the URL of the movie page
-            movie_url = "https://letterboxd.com" + li.find('a').attrs['href']
-            
-            # Make a request to the movie page
-            movie_response = requests.get(movie_url)
-            movie_soup = bs(movie_response.content, 'html.parser')
-            
-            # Find the poster URL
-            poster_url = movie_soup.find('meta', property='og:image')['content']
             
             # Add the title and poster URL to the list of movies
             movies.append({'Title': title, 'Poster_URL': poster_url})
@@ -64,7 +54,7 @@ movies = getting_user_watchlist(username)
 cinemized_movie = random.choice(movies)
 
 #printing the stuff from randomized movie function
-print("Cinemized Movie from" + username + "/'s" + 'Watchlist:')
+print("Cinemized Movie from "+ username + "'s " + 'Watchlist:')
 print("Title:", cinemized_movie['Title'])
 print("Poster (URL for now):", cinemized_movie['Poster_URL'])
 
