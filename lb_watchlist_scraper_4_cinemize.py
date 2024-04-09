@@ -5,31 +5,6 @@ from bs4 import BeautifulSoup as bs
 import pandas as pd
 import random
 
-def description_getter(movie_title):
-    #search imbd 
-    search_url = f"https://www.imdb.com/find?q={movie_title.replace(' ', '+')}"
-
-    #request to search url
-    response = requests.get(search_url)
-    soup = bs(response.content, 'html.parser')
-
-    #using first search result
-    result = soup.find('td', class_='result_text')
-    if result:
-        #get movie page
-        movie_url = "https://www.imdb.com" + result.find('a')['href']
-
-        # Make a request to the movie page
-        movie_response = requests.get(movie_url)
-        movie_soup = bs(movie_response.content, 'html.parser')
-        
-        # Find and return the description
-        description = movie_soup.find('meta', {'name': 'description'})
-        if description:
-            return description['content']
-    
-    return None
-
 #creating a function out of this entire process to pick a random movie from a uesr's watchlist 
 def getting_user_watchlist(username):
 
@@ -64,11 +39,18 @@ def getting_user_watchlist(username):
             title = image.attrs['alt']
             poster_url = image.attrs['src']
 
-            #getting description from imbd? 
-            description = description_getter(title)
-
-            # Adds the title, poster, and descirption of each movie to the list of movies 
-            movies.append({'Title': title, 'Poster_URL': poster_url, 'Description': description})
+            # Extract the URL of the movie page
+            movie_url = "https://letterboxd.com" + li.find('a').attrs['href']
+            
+            # Make a request to the movie page
+            movie_response = requests.get(movie_url)
+            movie_soup = bs(movie_response.content, 'html.parser')
+            
+            # Find the poster URL
+            poster_url = movie_soup.find('meta', property='og:image')['content']
+            
+            # Add the title and poster URL to the list of movies
+            movies.append({'Title': title, 'Poster_URL': poster_url})
 
     return movies
 
@@ -82,7 +64,8 @@ movies = getting_user_watchlist(username)
 cinemized_movie = random.choice(movies)
 
 #printing the stuff from randomized movie function
-print("Cinemized Movie from",username,'Watchlist:')
+print("Cinemized Movie from" + username + "/'s" + 'Watchlist:')
 print("Title:", cinemized_movie['Title'])
 print("Poster (URL for now):", cinemized_movie['Poster_URL'])
-print("Description:", cinemized_movie['Description'])
+
+
