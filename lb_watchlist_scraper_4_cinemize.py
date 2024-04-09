@@ -1,4 +1,4 @@
-#this code is from Cristiano's cristainao's letterboxd scrpaer and will be modified to work with cinemize
+#this code is from Cristiano's cristainao's Letterboxd scraper and will be modified to work with Cinemize - CSR
 
 import requests
 from bs4 import BeautifulSoup as bs
@@ -7,7 +7,8 @@ import pandas as pd
 # Create a dictionary where the movies will be stored
 movies = {}
 
-username = "cheshtoorder" # Replace this with your Letterboxd username
+#ask for letterboxd username in order to find the watchlist page - CSR
+username = input("Enter your Letterboxd username: ")
 
 # Get the total number of pages
 url = f"https://letterboxd.com/{username}/watchlist/page/1/"
