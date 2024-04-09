@@ -5,7 +5,7 @@
 - [x] Make a description of my project under the ReadME file
 - [x] Create this project roadmap on GitHub
 - [x] Find an existing Github repository on GitHub or somewhere else
-- [ ] Turn in the Sprint #1 quiz on D2L
+- [x] Turn in the Sprint #1 quiz on D2L
 
 ## Sprint 2
 - [ ] Make small updates and add commit messages with them in your repository through GitHub Desktop
