@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup as bs
 import pandas as pd
 
 # Create a dictionary where the movies will be stored
-movies = {}
+movies = []
 
 #ask for letterboxd username in order to find the watchlist page - CSR
 username = input("Enter your Letterboxd username: ")
@@ -34,14 +34,13 @@ for i in range(1, (int(last_page) + 1)):
     
     # Iterate through each LI to extract the title and the rating
     for li in lis:
-        rating = li.attrs['data-owner-rating']
         image = li.find('img')
         title = image.attrs['alt']
+        poster_url = image.attrs['src']
 
-        # Add the title and rating of each movie to the dictionary
-        movies[title] = rating
+        # Add only the title each movie to the dictionary
+        movies.append({'Title': title, 'Poster_URL': poster_url})
 
 # Convert the dictionary to a CSV file
-columns = ['Movie_title', 'Rating']
-df = pd.DataFrame(list(movies.items()), columns = columns)
-df.to_csv('lb_watchlist.csv', index = False)
+df = pd.DataFrame(movies)
+df.to_csv('lb_watchlist_with_posters.csv', index=False)
