@@ -9,11 +9,11 @@
 
 ## Sprint 2
 - [x] Turn Cristiano's code into a function that can be called
-- [ ] Figure out how to make the code continuely ask for the Letterboxd User's username
-- [ ]
+- [x] Figure out how to make the code continuely ask for the Letterboxd User's username
+- [ ] Find a way to either use a flask or GUI, so users can interact with the code
 - [ ] Make small updates and add commit messages with them in your repository through GitHub Desktop
 - [ ] Committed at least 6 code changes of significant size and explain what you did
-- [ ] tracking your progress on planned and emerging tasks in my projectroadmap.md
+- [x] tracking your progress on planned and emerging tasks in my projectroadmap.md
 - [ ] Turn in Sprint #2 quiz on D2L
   
 ## Sprint 3
