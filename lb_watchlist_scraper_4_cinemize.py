@@ -44,18 +44,22 @@ def getting_user_watchlist(username):
 
     return movies
 
-#ask for letterboxd username in order to find the watchlist page - CSR
-username = input("Enter your Letterboxd username: ")
+#looping it all 
+while True:
+    #ask for letterboxd username in order to find the watchlist page - CSR
+    username = input("Enter your Letterboxd username: ")
 
-#get the user's watch list
-movies = getting_user_watchlist(username)
+    #get the user's watch list
+    movies = getting_user_watchlist(username)
 
-#cinemizing (randomly choosing a movie) the watch list 
-cinemized_movie = random.choice(movies)
+    #cinemizing (randomly choosing a movie) the watch list 
+    cinemized_movie = random.choice(movies)
 
-#printing the stuff from randomized movie function
-print("Cinemized Movie from "+ username + "'s " + 'Watchlist:')
-print("Title:", cinemized_movie['Title'])
-print("Poster (URL for now):", cinemized_movie['Poster_URL'])
+    #printing the stuff from randomized movie function
+    print('\n')
+    print("Cinemized Movie from "+ username + "'s " + 'Watchlist:')
+    print("Title:", cinemized_movie['Title'])
+    print("Poster (URL for now):", cinemized_movie['Poster_URL'])
+    print('\n')
 
 
