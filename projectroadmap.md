@@ -8,6 +8,9 @@
 - [x] Turn in the Sprint #1 quiz on D2L
 
 ## Sprint 2
+- [x] Turn Cristiano's code into a function that can be called
+- [ ] Figure out how to make the code continuely ask for the Letterboxd User's username
+- [ ]
 - [ ] Make small updates and add commit messages with them in your repository through GitHub Desktop
 - [ ] Committed at least 6 code changes of significant size and explain what you did
 - [ ] tracking your progress on planned and emerging tasks in my projectroadmap.md
