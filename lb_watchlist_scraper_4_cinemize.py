@@ -4,6 +4,7 @@ import requests
 from bs4 import BeautifulSoup as bs
 import pandas as pd
 import random
+import urllib.parse
 
 #creating a function out of this entire process to pick a random movie from a uesr's watchlist 
 def getting_user_watchlist(username):
@@ -53,7 +54,10 @@ def cinemizer():
     
 #getting descirption of movie 
         for movie in movies:
-            url = f"https:letterboxd.com/film/{movie['Title']}/"
+            #encoding title based off of recommendation by chatgpt 
+            encoded_title = urllib.parse.quote_plus(movie['Title'])
+
+            url = f"https:letterboxd.com/film/{encoded_title}/"
             response = requests.get(url)
             soup = bs(response.content, 'html.parser')
             meta_tag = soup.find("meta", attrs={"name": "description"})
