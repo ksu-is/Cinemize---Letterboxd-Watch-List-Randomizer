@@ -44,22 +44,28 @@ def getting_user_watchlist(username):
 
     return movies
 
-#looping it all 
-while True:
-    #ask for letterboxd username in order to find the watchlist page - CSR
-    username = input("Enter your Letterboxd username: ")
 
-    #get the user's watch list
-    movies = getting_user_watchlist(username)
+#looping it all and getting description
+def cinemizer():
+    while True: 
+        username = input("Enter your Letterboxd username: ")
+        movies = getting_user_watchlist(username)
+    
+#getting descirption of movie 
+        for movie in movies:
+            url = f"https:letterboxd.com/film/{movie['Title']}/"
+            response = requests.get(url)
+            soup = bs(response.content, 'html.parser')
+            meta_tag = soup.find("meta", attrs={"name": "description"})
+            desscription_content = meta_tag.get("content") if meta_tag else "Description not available"
 
-    #cinemizing (randomly choosing a movie) the watch list 
-    cinemized_movie = random.choice(movies)
+            #the output
+            print('\n')
+            print("Cinemized Movie from "+ username + "'s " + 'Watchlist:')
+            print("Title:", movie['Title'])
+            print("Description:", desscription_content)
+            print("Poster (URL for now):", movie['Poster_URL'])
+            print('\n')
+            break
 
-    #printing the stuff from randomized movie function
-    print('\n')
-    print("Cinemized Movie from "+ username + "'s " + 'Watchlist:')
-    print("Title:", cinemized_movie['Title'])
-    print("Poster (URL for now):", cinemized_movie['Poster_URL'])
-    print('\n')
-
-
+cinemizer()
