@@ -54,8 +54,13 @@ def get_description(movie_url):
     return meta_tag.get("content") if meta_tag else "Description not available"
 
 #this is where we will scrape for the poster like we did for the description 
-def get_poster(movie_url):
+def get_poster(poster_url):
+    response = requests.get(poster_url)
+    soup = bs(response.content, 'html.parser')
+    meta_tag = soup.find("meta", property="og:image")
+    return meta_tag.get("content") if meta_tag else "Poster not available"
 
+    
 #looping it all and getting description
 def cinemizer():
     while True: 
@@ -71,6 +76,9 @@ def cinemizer():
 
         #get the description from the function above 
         description_content = get_description(cinemeized_movie['URL'])
+
+        #get poster content 
+        poster_content = get_poster(cinemeized_movie['URL'])
 
     
 #getting descirption of movie 
@@ -89,8 +97,7 @@ def cinemizer():
         print("Cinemized Movie from "+ username + "'s " + 'Watchlist:')
         print("Title:", cinemeized_movie['Title'])
         print("Description:", description_content)
-        print("Poster (URL for now):", cinemeized_movie['Poster_URL'])
+        print("Poster:", poster_content)
         print('\n')
-
 
 cinemizer()
