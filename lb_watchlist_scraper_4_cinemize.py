@@ -56,7 +56,11 @@ def get_description(movie_url):
 #looping it all and getting description
 def cinemizer():
     while True: 
-        username = input("Enter your Letterboxd username: ")
+        username = input("Enter your Letterboxd username or enter 'e' to exit: ")
+
+        if username.lower() == 'e':
+            break
+
         movies = getting_user_watchlist(username)
 
         #cinemizing the watchlist 
@@ -84,6 +88,6 @@ def cinemizer():
         print("Description:", description_content)
         print("Poster (URL for now):", cinemeized_movie['Poster_URL'])
         print('\n')
-        break
+
 
 cinemizer()
