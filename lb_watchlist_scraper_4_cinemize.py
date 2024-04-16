@@ -80,18 +80,6 @@ def cinemizer():
         #get poster content 
         poster_content = get_poster(cinemeized_movie['URL'])
 
-    
-#getting descirption of movie 
-        #for movie in movies:
-            #encoding title based off of recommendation by chatgpt 
-            #encoded_title = urllib.parse.quote_plus(movie['Title']).replace("+", "-").lower()
-
-            #url = f"https://letterboxd.com/film/{encoded_title}/"
-            #response = requests.get(url)
-            #soup = bs(response.content, 'html.parser')
-            #meta_tag = soup.find("meta", attrs={"name": "description"})
-            #description_content = meta_tag.get("content") if meta_tag else "Description not available"
-
         #the output
         print('\n')
         print("Cinemized Movie from "+ username + "'s " + 'Watchlist:')
