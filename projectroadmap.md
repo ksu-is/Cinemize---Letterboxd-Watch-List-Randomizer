@@ -11,6 +11,7 @@
 - [x] Turn Cristiano's code into a function that can be called
 - [x] Figure out how to make the code continuely ask for the Letterboxd User's username
 - [ ] Find a way to either use a flask or GUI, so users can interact with the code
+- [ ] Update roadmap to include instructions on how to use this app (downloads, wait times etc)
 - [ ] Make small updates and add commit messages with them in your repository through GitHub Desktop
 - [ ] Committed at least 6 code changes of significant size and explain what you did
 - [x] tracking your progress on planned and emerging tasks in my projectroadmap.md
