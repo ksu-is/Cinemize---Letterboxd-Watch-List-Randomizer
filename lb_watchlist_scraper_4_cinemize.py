@@ -39,37 +39,51 @@ def getting_user_watchlist(username):
             image = li.find('img')
             title = image.attrs['alt']
             poster_url = image.attrs['src']
-            
+            movie_url = f"https://letterboxd.com/film/{urllib.parse.quote_plus(title).replace('+', '-').lower()}/"
+
             # Add the title and poster URL to the list of movies
-            movies.append({'Title': title, 'Poster_URL': poster_url})
+            movies.append({'Title': title, 'Poster_URL': poster_url, 'URL': movie_url})
 
     return movies
 
+#creating a function to get the description of the movie, so it can be called in the cinemizer function 
+def get_description(movie_url):
+    response = requests.get(movie_url)
+    soup = bs(response.content, 'html.parser')
+    meta_tag = soup.find("meta", attrs={"name": "description"})
+    return meta_tag.get("content") if meta_tag else "Description not available"
 
 #looping it all and getting description
 def cinemizer():
     while True: 
         username = input("Enter your Letterboxd username: ")
         movies = getting_user_watchlist(username)
+
+        #cinemizing the watchlist 
+        cinemeized_movie = random.choice(movies)
+
+        #get the description from the function above 
+        description_content = get_description(cinemeized_movie['URL'])
+
     
 #getting descirption of movie 
-        for movie in movies:
+        #for movie in movies:
             #encoding title based off of recommendation by chatgpt 
-            encoded_title = urllib.parse.quote_plus(movie['Title']).replace("+", "-").lower()
+            #encoded_title = urllib.parse.quote_plus(movie['Title']).replace("+", "-").lower()
 
-            url = f"https://letterboxd.com/film/{encoded_title}/"
-            response = requests.get(url)
-            soup = bs(response.content, 'html.parser')
-            meta_tag = soup.find("meta", attrs={"name": "description"})
-            description_content = meta_tag.get("content") if meta_tag else "Description not available"
+            #url = f"https://letterboxd.com/film/{encoded_title}/"
+            #response = requests.get(url)
+            #soup = bs(response.content, 'html.parser')
+            #meta_tag = soup.find("meta", attrs={"name": "description"})
+            #description_content = meta_tag.get("content") if meta_tag else "Description not available"
 
-            #the output
-            print('\n')
-            print("Cinemized Movie from "+ username + "'s " + 'Watchlist:')
-            print("Title:", movie['Title'])
-            print("Description:", description_content)
-            print("Poster (URL for now):", movie['Poster_URL'])
-            print('\n')
-            break
+        #the output
+        print('\n')
+        print("Cinemized Movie from "+ username + "'s " + 'Watchlist:')
+        print("Title:", cinemeized_movie['Title'])
+        print("Description:", description_content)
+        print("Poster (URL for now):", cinemeized_movie['Poster_URL'])
+        print('\n')
+        break
 
 cinemizer()
