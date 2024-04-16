@@ -53,6 +53,9 @@ def get_description(movie_url):
     meta_tag = soup.find("meta", attrs={"name": "description"})
     return meta_tag.get("content") if meta_tag else "Description not available"
 
+#this is where we will scrape for the poster like we did for the description 
+def get_poster(movie_url):
+
 #looping it all and getting description
 def cinemizer():
     while True: 

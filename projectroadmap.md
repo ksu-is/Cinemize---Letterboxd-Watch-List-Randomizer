@@ -10,6 +10,9 @@
 ## Sprint 2
 - [x] Turn Cristiano's code into a function that can be called
 - [x] Figure out how to make the code continuely ask for the Letterboxd User's username
+- [ ] Try to get the app to use html for poster. This is an example of "Color Me True"  (‹meta property="og:image" content="https://a.ltrbxd.com/re
+sized/sm/upload/42/jf/mv/p5/Color%20Me%20True%20(2018) -120
+0-1200-675-675-crop-000000.jpg?v=286f681a86">)
 - [ ] Find a way to either use a flask or GUI, so users can interact with the code
 - [ ] Update roadmap to include instructions on how to use this app (downloads, wait times etc)
 - [ ] Make small updates and add commit messages with them in your repository through GitHub Desktop
