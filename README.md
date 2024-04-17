@@ -10,6 +10,16 @@ Letterboxd is a cinephile’s favorite social media. The application has evolved
 
 Cinemize scrapes a user’s Letterboxd web page immediately after the user enters their username as prompted. Cinemize then finds the user’s public Watchlist and creates a list of strings from the titles of the movie Watchlist. After reformatting the new list, the software outputs a random item from the user's Watchlist alongside its poster and a description of the movie. For the user to get multiple recommendations, the user must keep their username in the search bar and continue pressing the Cinemize button. Additionally, there is a link on the web page that can take the user directly to Letterboxd.
 
+### Instructions
+
+1) Run installations in a terminal, if necessary 
+    -m pip install requests
+    -m pip install bs4
+    -m pip install pandas
+    -m pip install random
+
+2) (update when I can figure out the flask and etc)
+
 
 ## Credits
 
