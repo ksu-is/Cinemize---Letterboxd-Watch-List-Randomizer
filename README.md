@@ -12,6 +12,8 @@ Cinemize scrapes a user’s Letterboxd web page immediately after the user enter
 
 ### Instructions
 
+note: The longer your watchlist the longer the program will take to run.
+
 1) Run installations in a terminal, if necessary 
     -m pip install requests
     -m pip install bs4
