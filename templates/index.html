@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-sclae=1.0">
+    <title>Cinemize</title>
+</head>
+<body>
+    <h1>Cinemize: Watchlisting Simplified</h1>
+    <p>Enter your Letterboxd username below to get a randomly selected movie from your public watchlist</p>
+    <form action="{{ url_for('cinermizer') }}" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <button type="submit">Cinemize</button>
+    </form>
+</body>
+</html>
