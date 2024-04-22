@@ -12,13 +12,14 @@ Cinemize scrapes a user’s Letterboxd web page immediately after the user enter
 
 ### Instructions
 
-note: The longer your watchlist the longer the program will take to run.
+#### note: the longer your watchlist the longer the program will take to run.
 
 1) Run installations in a terminal, if necessary 
     -m pip install requests
     -m pip install bs4
     -m pip install pandas
     -m pip install random
+    -m pip install urllib.parse
 
 2) (update when I can figure out the flask and etc)
 
