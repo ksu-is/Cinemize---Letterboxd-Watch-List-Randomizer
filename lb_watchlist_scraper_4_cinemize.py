@@ -1,3 +1,7 @@
+'''
+This is code meant to scrape a Letterboxd User's watchlist and output a 
+'''
+
 #this code is from Cristiano's cristainao's Letterboxd scraper and will be modified to work with Cinemize - CSR
 
 import requests
@@ -6,7 +10,7 @@ import pandas as pd
 import random
 import urllib.parse
 
-#creating a function out of this entire process to pick a random movie from a uesr's watchlist 
+#creating a function to get a user's watchlist from Letterboxd and return it in list form to be used later
 def getting_user_watchlist(username):
 
     # Create a dictionary where the movies will be stored
@@ -53,7 +57,7 @@ def get_description(movie_url):
     meta_tag = soup.find("meta", attrs={"name": "description"})
     return meta_tag.get("content") if meta_tag else "Description not available"
 
-#this is where we will scrape for the poster like we did for the description 
+#this is where we will scrape for the poster/movie-image like we did for the description 
 def get_poster(poster_url):
     response = requests.get(poster_url)
     soup = bs(response.content, 'html.parser')
@@ -61,6 +65,7 @@ def get_poster(poster_url):
     return meta_tag.get("content") if meta_tag else "Poster not available"
 
     
+#This is where the randomizing occurs as well as the movie details output 
 #looping it all and getting description
 def cinemizer():
     while True: 
@@ -71,16 +76,16 @@ def cinemizer():
 
         movies = getting_user_watchlist(username)
 
-        #cinemizing the watchlist 
+        #cinemizing/randomizing the watchlist 
         cinemeized_movie = random.choice(movies)
 
         #get the description from the function above 
         description_content = get_description(cinemeized_movie['URL'])
 
-        #get poster content 
+        #get movie image content 
         poster_content = get_poster(cinemeized_movie['URL'])
 
-        #the output
+        #the movie details output
         print('\n')
         print("Cinemized Movie from "+ username + "'s " + 'Watchlist:')
         print("Title:", cinemeized_movie['Title'])
