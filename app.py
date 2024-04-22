@@ -32,4 +32,4 @@ def cinemizer(username):
     return render_template('movie_details.html', username=username, movie=cinemeized_movie, description=description_content, poster=poster_content)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
