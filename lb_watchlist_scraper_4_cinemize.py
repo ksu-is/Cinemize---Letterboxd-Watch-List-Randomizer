@@ -1,5 +1,5 @@
 '''
-This is code meant to scrape a Letterboxd User's watchlist and output a 
+This is code meant to scrape a Letterboxd User's watchlist and output a movie to watch 
 '''
 
 #this code is from Cristiano's cristainao's Letterboxd scraper and will be modified to work with Cinemize - CSR
