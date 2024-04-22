@@ -2,7 +2,7 @@ import requests
 import urllib.request
 from urllib.error import HTTPError
 from http.client import InvalidURL
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup as bs
 from PIL import ImageTk, Image
 from random import choice
 import tkinter as tk
@@ -294,12 +294,12 @@ frame = tk.Frame(pady = 20, padx = 20)
 frame2 = tk.Frame(pady = 20, padx = 20)
 
 # add text
-title = tk.Label(text="Cinemize: Watchlisting Simplified", master=frame)
+title = tk.Label(text="Watchlisting Simplified", master=frame)
 title.pack()
 
 description_txt =\
 "Enter your Letterboxd Username:"
-description = tk.Label(text=description_txt, wraplength=200, justify='left', master=frame)
+description = tk.Label(text=description_txt, wraplength=300, justify='left', master=frame)
 description.pack(pady=5)
 
 # create the entry for the second profile
