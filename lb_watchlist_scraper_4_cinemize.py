@@ -73,5 +73,3 @@ def cinemizer(username):
     poster_content = get_poster(cinemeized_movie['URL'])
 
     return cinemeized_movie, description_content, poster_content
-
-cinemizer()
