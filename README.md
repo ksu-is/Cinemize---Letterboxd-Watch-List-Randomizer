@@ -25,6 +25,6 @@ note: The longer your watchlist the longer the program will take to run.
 
 ## Credits
 
-A special thanks to Cristiano (https://github.com/cristianooo1/Letterboxd-watchlist-scraper) for creating a Letterboxd Watchlist scraper that will be modified to aid in making Cinimize. 
+A special thanks to Cristiano (https://github.com/cristianooo1/Letterboxd-watchlist-scraper) for creating a Letterboxd Watchlist scraper that was modified to make Cinimize. 
 
 In order to make this program work I also referenced a guide to implement beautiful soup. Thank you to GeeksforGeeks! (https://www.geeksforgeeks.org/implementing-web-scraping-python-beautiful-soup/)
