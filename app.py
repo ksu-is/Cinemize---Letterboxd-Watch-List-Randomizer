@@ -10,6 +10,7 @@ def index():
    if request.method == 'POST':
        #where a user can type in their username
        username = request.form['username']
+       movie, description, poster = cinemizer(username)
        return redirect(url_for('cinemizer', username=username))
    else:
        #submitting the user to get the scraper to scrape 

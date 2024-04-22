@@ -66,31 +66,12 @@ def get_poster(poster_url):
 
     
 #This is where the randomizing occurs as well as the movie details output 
-#looping it all and getting description
-def cinemizer():
-    while True: 
-        username = input("Enter your Letterboxd username or enter 'e' to exit: ")
+def cinemizer(username):
+    movies = getting_user_watchlist(username)
+    cinemeized_movie = random.choice(movies)
+    description_content = get_description(cinemeized_movie['URL'])
+    poster_content = get_poster(cinemeized_movie['URL'])
 
-        if username.lower() == 'e':
-            break
-
-        movies = getting_user_watchlist(username)
-
-        #cinemizing/randomizing the watchlist 
-        cinemeized_movie = random.choice(movies)
-
-        #get the description from the function above 
-        description_content = get_description(cinemeized_movie['URL'])
-
-        #get movie image content 
-        poster_content = get_poster(cinemeized_movie['URL'])
-
-        #the movie details output
-        print('\n')
-        print("Cinemized Movie from "+ username + "'s " + 'Watchlist:')
-        print("Title:", cinemeized_movie['Title'])
-        print("Description:", description_content)
-        print("Poster:", poster_content)
-        print('\n')
+    return cinemeized_movie, description_content, poster_content
 
 cinemizer()
