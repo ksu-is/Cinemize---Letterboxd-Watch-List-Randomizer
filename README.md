@@ -28,4 +28,6 @@ Cinemize scrapes a user’s Letterboxd web page immediately after the user enter
 
 A special thanks to Cristiano (https://github.com/cristianooo1/Letterboxd-watchlist-scraper) for creating a Letterboxd Watchlist scraper that was modified to make Cinimize. 
 
-In order to make this program work I also referenced a guide to implement beautiful soup. Thank you to GeeksforGeeks! (https://www.geeksforgeeks.org/implementing-web-scraping-python-beautiful-soup/)
+Thank you to GeeksforGeeks (https://www.geeksforgeeks.org/implementing-web-scraping-python-beautiful-soup/)!! In order to make this program work I referenced their guide to implement beautiful soup.
+
+Lastly, a special thanks to Samir (https://github.com/samirsaliba/letterboxd-watchlist-picker) for creating a python GUI that was modiified to host Cinemize's interface.
