@@ -13,18 +13,21 @@ from webbrowser import open_new
 from io import BytesIO
 import webbrowser
 
+# Define the Threader class
 class Threader(threading.Thread):
-    def __init__(self, *args, **kwargs):
+    def __init__(self, button, username, *args, **kwargs):
+        self.button = button
+        self.username = username
         threading.Thread.__init__(self, *args, **kwargs)
         self.daemon = True
         self.start()
 
     def run(self):
-        button.config(state=tk.DISABLED)
-        button.config(text="Running...", cursor='wait')
-        cinemizer()
-        button.config(state=tk.NORMAL)
-        button.config(text="Run again", cursor='arrow')
+        self.button.config(state=tk.DISABLED)
+        self.button.config(text="Running...", cursor='wait')
+        cinemizer(self.username)
+        self.button.config(state=tk.NORMAL)
+        self.button.config(text="Run again", cursor='arrow')
 
 #creating a function to get a user's watchlist from Letterboxd and return it in list form to be used later
 def getting_user_watchlist(username):
@@ -83,45 +86,38 @@ def get_poster(poster_url):
     
 #This is where the randomizing occurs as well as the movie details output 
 #looping it all and getting description
-def cinemizer():
-    while True: 
-        username = input("Enter your Letterboxd username or enter 'e' to exit: ")
+def cinemizer(username):
+    movies = getting_user_watchlist(username)
 
-        if username.lower() == 'e':
-            break
+    #cinemizing/randomizing the watchlist 
+    cinemeized_movie = random.choice(movies)
 
-        movies = getting_user_watchlist(username)
+    #get the description from the function above 
+    description_content = get_description(cinemeized_movie['URL'])
 
-        #cinemizing/randomizing the watchlist 
-        cinemeized_movie = random.choice(movies)
+    #get movie image content 
+    poster_content = get_poster(cinemeized_movie['URL'])
 
-        #get the description from the function above 
-        description_content = get_description(cinemeized_movie['URL'])
-
-        #get movie image content 
-        poster_content = get_poster(cinemeized_movie['URL'])
-
-        #putting poster on gui 
-        poster_response = requests.get(poster_content)
-        img = Image.open(BytesIO(poster_response.content))
-        img = ImageTk.PhotoImage(img)
+    #putting poster on gui 
+    poster_response = requests.get(poster_content)
+    img = Image.open(BytesIO(poster_response.content))
+    img = ImageTk.PhotoImage(img)
     
-        for widget in frame2.winfo_children():
-            widget.destroy()
+    for widget in frame2.winfo_children():
+        widget.destroy()
 
-        poster = tk.Label(master=frame2, image=img)
-        poster.image = img
-        poster.pack()
+    poster = tk.Label(master=frame2, image=img)
+    poster.image = img
+    poster.pack()
 
-        link1 = tk.Label(frame2, text=cinemeized_movie['Title'], fg="blue", cursor="hand2")
-        link1.pack()
-        link1.bind("<Button-1>", lambda e: open_new(cinemeized_movie['URL']))
+    link1 = tk.Label(frame2, text=cinemeized_movie['Title'], fg="white", cursor="hand2")
+    link1.pack()
+    link1.bind("<Button-1>", lambda e: open_new(cinemeized_movie['URL']))
 
-        description_label = tk.Label(master=frame2, text=description_content)
-        description_label.pack()
+    description_label = tk.Label(master=frame2, text=description_content)
+    description_label.pack()
 
-        frame2.pack()
-
+    frame2.pack()
 
 #function to hyperlink letterboxd to 
 def open_letterboxd(event):
@@ -139,31 +135,38 @@ frame = tk.Frame(pady = 20, padx = 20, bg ="#202830")
 frame2 = tk.Frame(pady = 20, padx = 20, bg ="#202830")
 
 # setting the size of the GUI window 
-window.geometry("400x600")  
+window.geometry("800x800")  
 
 # add text
 title = tk.Label(text="Watchlisting Simplified", master=frame, bg="#202830", fg="#FFFFFF")
 title.pack()
 
 
-description_txt = "Enter your "
+description_txt = "\t Enter your "
 description_txt += "Letterboxd"  # Make "Letterboxd" a hyperlink
-description_txt += " Username:"
+description_txt += " username:"
 
 description = tk.Text(master=frame, wrap="word", height=2, bg="#202830", fg="#FFFFFF")
 description.insert(tk.END, description_txt)
 description.tag_configure("hyperlink", foreground="#fe8001", underline=True)
 description.tag_bind("hyperlink", "<Button-1>", open_letterboxd)
-description.tag_add("hyperlink", "1.11", "1.21")
+description.tag_add("hyperlink", "1.13", "1.23")
 description.pack(pady=5)
 
 # create the entry for the profile
-entry_profile1 = tk.Entry(fg="#fe8001", bg="#FFFFFF", width=33, master=frame)
-entry_profile1.pack()
+username_entry = tk.Entry(fg="#000000", bg="#FFFFFF", width=33, master=frame)
+username_entry.pack()
 
 
 # create the trigger button
-button = tk.Button(text="Cinemize", bg="#202830", fg="#202830", master=frame, cursor="hand2", command= lambda: Threader(name='Start-Routine'))
+button = tk.Button(
+    text="Cinemize",
+    bg="#202830",
+    fg="#202830",
+    master=frame,
+    cursor="hand2",
+    command=lambda: Threader(button, username_entry.get())
+)
 button.pack(pady=5)
 
 # create error message (won't be displayed unless an error is thrown)
@@ -172,3 +175,4 @@ error = tk.Label(text="Error.", wraplength=200, justify='left', master=frame)
 # pack the frame & Run it
 frame.pack()
 window.mainloop()
+
