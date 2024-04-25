@@ -17,10 +17,11 @@ sized/sm/upload/42/jf/mv/p5/Color%20Me%20True%20(2018) -120
 - [x] Research/Find a way to either use a GUI, so users can interact with the code
 - [x] Commit at least 6 code changes of significant size and explain what you did
 - [x] tracking your progress on planned and emerging tasks in my projectroadmap.md
-- [ ] Turn in Sprint #2 quiz on D2L
+- [x] Turn in Sprint #2 quiz on D2L
   
 ## Sprint 3
-- [ ] Implement and code the flask or GUI researched in sprint 2
+- [x] Implement and code the flask or GUI researched in sprint 2
+- [ ] Customize the GUI, specifically the color text box and the text
 - [ ] Continue coding and refining and testing
 - [ ] Make code pretty and easily followable
 - [ ] Update the README fwith a finished instructions list
