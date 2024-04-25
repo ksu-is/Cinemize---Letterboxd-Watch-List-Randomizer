@@ -14,14 +14,31 @@ Cinemize scrapes a user’s Letterboxd web page immediately after the user enter
 
 #### note: the longer your watchlist the longer the program will take to run.
 
-1) Run installations in a terminal, if necessary 
+1) Run installations in terminal
     -m pip install requests <br>
     -m pip install bs4 <br>
     -m pip install pandas <br>
     -m pip install random <br>
-    -m pip install urllib.parse
+    -m pip install urllib.parse <br>
+    -m pip install urllib.request <br>
+    -m pip install webbrowser <br>
+    -m pip install urllib.error <br>
+    -m pip install  http.client <br>
+    -m pip install bs4 <br>
+    -m pip install PIL <br>
+    -m pip install tkinter <br>
+    -m pip install requests.exceptions <br>
+    -m pip install threading <br>
+    -m pip install webbrowser <br>
+    -m pip install io 
 
-2) (update when I can figure out the flask and etc)
+2) Run lb_gui.py and wait for the Cinemize window to appear
+
+3) Enter your letterboxd username in the box below "enter your Letterboxd username:" (be aware of case sensitivity)
+
+4) Press the cinemize button
+
+5) Optional: Leave your Letterboxd username in the text box and press Cinemize to get another movie. 
 
 
 ## Credits
