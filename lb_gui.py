@@ -11,7 +11,7 @@ from requests.exceptions import ConnectionError
 import threading, time
 from webbrowser import open_new
 from io import BytesIO
-
+import webbrowser
 
 class Threader(threading.Thread):
     def __init__(self, *args, **kwargs):
@@ -122,6 +122,11 @@ def cinemizer():
 
         frame2.pack()
 
+
+#function to hyperlink letterboxd to 
+def open_letterboxd(event):
+    webbrowser.open_new("https://letterboxd.com/")
+
 # set-up the window
 window = tk.Tk()
 window.title("Cinemize")
@@ -140,9 +145,16 @@ window.geometry("400x600")
 title = tk.Label(text="Watchlisting Simplified", master=frame, bg="#202830", fg="#FFFFFF")
 title.pack()
 
-description_txt =\
-"Enter your Letterboxd Username:"
-description = tk.Label(text=description_txt, wraplength=300, justify='left', master=frame, bg="#202830", fg="#FFFFFF")
+
+description_txt = "Enter your "
+description_txt += "Letterboxd"  # Make "Letterboxd" a hyperlink
+description_txt += " Username:"
+
+description = tk.Text(master=frame, wrap="word", height=2, bg="#202830", fg="#FFFFFF")
+description.insert(tk.END, description_txt)
+description.tag_configure("hyperlink", foreground="#fe8001", underline=True)
+description.tag_bind("hyperlink", "<Button-1>", open_letterboxd)
+description.tag_add("hyperlink", "1.11", "1.21")
 description.pack(pady=5)
 
 # create the entry for the profile
