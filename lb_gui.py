@@ -27,7 +27,7 @@ class Threader(threading.Thread):
         self.button.config(text="Running...", cursor='wait')
         cinemizer(self.username)
         self.button.config(state=tk.NORMAL)
-        self.button.config(text="Run again", cursor='arrow')
+        self.button.config(text="Cinemize", cursor='arrow')
 
 #creating a function to get a user's watchlist from Letterboxd and return it in list form to be used later
 def getting_user_watchlist(username):
@@ -106,16 +106,19 @@ def cinemizer(username):
     for widget in frame2.winfo_children():
         widget.destroy()
 
-    poster = tk.Label(master=frame2, image=img)
-    poster.image = img
-    poster.pack()
-
-    link1 = tk.Label(frame2, text=cinemeized_movie['Title'], fg="white", cursor="hand2")
+    #displays title in the Cinemize GUI 
+    link1 = tk.Label(frame2, text=cinemeized_movie['Title'], fg="white", bg="#202830", cursor="hand2", font=("Arial", 24, "underline"))
     link1.pack()
     link1.bind("<Button-1>", lambda e: open_new(cinemeized_movie['URL']))
 
-    description_label = tk.Label(master=frame2, text=description_content)
+    #displays the description of the movie 
+    description_label = tk.Label(master=frame2, text=description_content, fg="white", bg="#202830", wraplength=500)
     description_label.pack()
+
+    #displays the movie image/poster
+    poster = tk.Label(master=frame2, image=img)
+    poster.image = img
+    poster.pack()
 
     frame2.pack()
 
@@ -138,23 +141,23 @@ frame2 = tk.Frame(pady = 20, padx = 20, bg ="#202830")
 window.geometry("800x800")  
 
 # add text
-title = tk.Label(text="Watchlisting Simplified", master=frame, bg="#202830", fg="#FFFFFF")
+title = tk.Label(text="Watchlisting Simplified", master=frame, bg="#202830", fg="#fe8001")
 title.pack()
 
 
-description_txt = "\t Enter your "
+description_txt = "Enter your "
 description_txt += "Letterboxd"  # Make "Letterboxd" a hyperlink
 description_txt += " username:"
 
-description = tk.Text(master=frame, wrap="word", height=2, bg="#202830", fg="#FFFFFF")
+description = tk.Text(master=frame, wrap="word", height=2, bg="#202830", fg="#FFFFFF",)
 description.insert(tk.END, description_txt)
-description.tag_configure("hyperlink", foreground="#fe8001", underline=True)
+description.tag_configure("hyperlink", foreground="#03DF54", underline=True)
 description.tag_bind("hyperlink", "<Button-1>", open_letterboxd)
-description.tag_add("hyperlink", "1.13", "1.23")
+description.tag_add("hyperlink", "1.11", "1.21")
 description.pack(pady=5)
 
 # create the entry for the profile
-username_entry = tk.Entry(fg="#000000", bg="#FFFFFF", width=33, master=frame)
+username_entry = tk.Entry(fg="#41bbf2", bg="#202830", width=33, master=frame)
 username_entry.pack()
 
 
