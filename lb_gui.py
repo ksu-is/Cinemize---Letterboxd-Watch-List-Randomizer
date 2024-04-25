@@ -303,13 +303,13 @@ description_txt =\
 description = tk.Label(text=description_txt, wraplength=300, justify='left', master=frame)
 description.pack(pady=5)
 
-# create the entry for the second profile
+# create the entry for the profile
 entry_profile1 = tk.Entry(fg="#ff8000", bg="#333333", width=33, master=frame)
 entry_profile1.pack()
 
 
 # create the trigger button
-button = tk.Button(text="Run", bg="#00e054", fg="#333333", master=frame, cursor="hand2", command= lambda: Threader(name='Start-Routine'))
+button = tk.Button(text="Cinemize", bg="#00e054", fg="#333333", master=frame, cursor="hand2", command= lambda: Threader(name='Start-Routine'))
 button.pack(pady=5)
 
 # create error message (won't be displayed unless an error is thrown)
