@@ -1,8 +1,8 @@
 '''
-This is code meant to scrape a Letterboxd User's watchlist and output a movie to watch 
-'''
+This code is from Cristiano's Letterboxd scraper and was modified to work with Cinemize - CSR
 
-#this code is from Cristiano's cristainao's Letterboxd scraper and will be modified to work with Cinemize - CSR
+The LB_watchlist_scraper_4_cinemize does the same thing as the lb_ but it simply outputs the title, description, and movie image url 
+'''
 
 import requests
 from bs4 import BeautifulSoup as bs
