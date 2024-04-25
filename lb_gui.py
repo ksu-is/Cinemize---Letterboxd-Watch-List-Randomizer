@@ -12,6 +12,7 @@ import threading, time
 from webbrowser import open_new
 from io import BytesIO
 
+
 class Threader(threading.Thread):
     def __init__(self, *args, **kwargs):
         threading.Thread.__init__(self, *args, **kwargs)
@@ -124,26 +125,33 @@ def cinemizer():
 # set-up the window
 window = tk.Tk()
 window.title("Cinemize")
+
+# making the color of GUI resemble the color of the letterboxd app 
+window.configure(bg ="#202830")
+
 window.resizable(False, False)
-frame = tk.Frame(pady = 20, padx = 20)
-frame2 = tk.Frame(pady = 20, padx = 20)
+frame = tk.Frame(pady = 20, padx = 20, bg ="#202830")
+frame2 = tk.Frame(pady = 20, padx = 20, bg ="#202830")
+
+# setting the size of the GUI window 
+window.geometry("400x600")  
 
 # add text
-title = tk.Label(text="Watchlisting Simplified", master=frame)
+title = tk.Label(text="Watchlisting Simplified", master=frame, bg="#202830", fg="#FFFFFF")
 title.pack()
 
 description_txt =\
 "Enter your Letterboxd Username:"
-description = tk.Label(text=description_txt, wraplength=300, justify='left', master=frame)
+description = tk.Label(text=description_txt, wraplength=300, justify='left', master=frame, bg="#202830", fg="#FFFFFF")
 description.pack(pady=5)
 
 # create the entry for the profile
-entry_profile1 = tk.Entry(fg="#ff8000", bg="#333333", width=33, master=frame)
+entry_profile1 = tk.Entry(fg="#fe8001", bg="#FFFFFF", width=33, master=frame)
 entry_profile1.pack()
 
 
 # create the trigger button
-button = tk.Button(text="Cinemize", bg="#00e054", fg="#333333", master=frame, cursor="hand2", command= lambda: Threader(name='Start-Routine'))
+button = tk.Button(text="Cinemize", bg="#202830", fg="#202830", master=frame, cursor="hand2", command= lambda: Threader(name='Start-Routine'))
 button.pack(pady=5)
 
 # create error message (won't be displayed unless an error is thrown)
