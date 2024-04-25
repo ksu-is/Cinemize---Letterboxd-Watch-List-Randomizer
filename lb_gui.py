@@ -85,7 +85,6 @@ def get_poster(poster_url):
 
     
 #This is where the randomizing occurs as well as the movie details output 
-#looping it all and getting description
 def cinemizer(username):
     movies = getting_user_watchlist(username)
 
@@ -140,15 +139,16 @@ frame2 = tk.Frame(pady = 20, padx = 20, bg ="#202830")
 # setting the size of the GUI window 
 window.geometry("800x800")  
 
-# add text
+# adding header text
 title = tk.Label(text="Watchlisting Simplified", master=frame, bg="#202830", fg="#fe8001")
 title.pack()
 
-
+#adding the prompt 
 description_txt = "Enter your "
 description_txt += "Letterboxd"  # Make "Letterboxd" a hyperlink
 description_txt += " username:"
 
+#hyperlinking the prompt to letterboxd 
 description = tk.Text(master=frame, wrap="word", height=2, bg="#202830", fg="#FFFFFF",)
 description.insert(tk.END, description_txt)
 description.tag_configure("hyperlink", foreground="#03DF54", underline=True)
@@ -156,12 +156,12 @@ description.tag_bind("hyperlink", "<Button-1>", open_letterboxd)
 description.tag_add("hyperlink", "1.11", "1.21")
 description.pack(pady=5)
 
-# create the entry for the profile
+# creating the entry for the profile
 username_entry = tk.Entry(fg="#41bbf2", bg="#202830", width=33, master=frame)
 username_entry.pack()
 
 
-# create the trigger button
+# creating the trigger button
 button = tk.Button(
     text="Cinemize",
     bg="#202830",
@@ -172,7 +172,7 @@ button = tk.Button(
 )
 button.pack(pady=5)
 
-# create error message (won't be displayed unless an error is thrown)
+# creating error message (won't be displayed unless an error is thrown)
 error = tk.Label(text="Error.", wraplength=200, justify='left', master=frame)
 
 # pack the frame & Run it
