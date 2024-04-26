@@ -36,10 +36,11 @@ Cinemize scrapes a user’s Letterboxd web page immediately after the user enter
 
 3) Enter your letterboxd username in the box below "enter your Letterboxd username:" (be aware of case sensitivity)
 
-4) Press the cinemize button
+4) Press the Cinemize button
 
 5) Optional: Leave your Letterboxd username in the text box and press Cinemize to get another movie. 
 
+#### note: click on "Letterboxd" in the "Enter your Letterboxd username:" to open Letterboxd
 
 ## Credits
 
