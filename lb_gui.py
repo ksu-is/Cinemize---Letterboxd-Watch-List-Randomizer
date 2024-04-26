@@ -1,3 +1,7 @@
+'''
+This is code is to run the actual software. Makesure to look at the README file and follow the directions. 
+'''
+
 import requests
 import random
 import urllib.request
