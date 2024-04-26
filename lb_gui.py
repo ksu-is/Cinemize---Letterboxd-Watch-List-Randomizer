@@ -140,7 +140,7 @@ frame2 = tk.Frame(pady = 20, padx = 20, bg ="#202830")
 window.geometry("800x800")  
 
 # adding header text
-title = tk.Label(text="Watchlisting Simplified", master=frame, bg="#202830", fg="#fe8001")
+title = tk.Label(text="Watchlisting Simplified", master=frame, bg="#202830", fg="#fe8001", font=("Helvetica", 16, "bold"))
 title.pack()
 
 #adding the prompt 
@@ -150,14 +150,14 @@ description_txt += " username:"
 
 #hyperlinking the prompt to letterboxd 
 # Create a label for the prompt
-description = tk.Label(master=frame, text=description_txt, bg="#202830", fg="#FFFFFF")
+description = tk.Label(master=frame, text=description_txt, bg="#202830", fg="#03df54", font=("Helvetica", 16))
 description.pack()
 
 # Bind the hyperlink behavior to the label
 description.bind("<Button-1>", open_letterboxd)
 
 # creating the entry for the profile
-username_entry = tk.Entry(fg="#41bbf2", bg="#202830", width=33, master=frame)
+username_entry = tk.Entry(fg="#41bbf2", bg="#202830", width=33, master=frame, justify="center", font=("Helvetica", 13, "bold"))
 username_entry.pack()
 
 
