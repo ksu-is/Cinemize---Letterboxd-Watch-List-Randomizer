@@ -23,11 +23,11 @@ sized/sm/upload/42/jf/mv/p5/Color%20Me%20True%20(2018) -120
 - [x] Implement and code the flask or GUI researched in sprint 2
 - [x] Customize the GUI, specifically the color text box and the text
 - [x] Create a hyper link to letterboxd for if/when users encounter an error
-- [ ] Continue coding and refining and testing
-- [ ] Make code pretty and easily followable
+- [x] Continue coding and refining and testing
+- [x] Make code pretty and easily followable
 - [x] Update the README fwith a finished instructions list
 - [x] Create one PowerPoint slide introducing your project and upload it
-- [ ] Upload the PowerPoint slide on D2L and vscode/github
+- [x] Upload the PowerPoint slide on D2L and vscode/github
   
 ## Final Presentation
 - [ ] Present on Microsoft Teams
