@@ -24,7 +24,7 @@ class Threader(threading.Thread):
 
     def run(self):
         self.button.config(state=tk.DISABLED)
-        self.button.config(text="Running...", cursor='wait')
+        self.button.config(text="Cinemizing...", cursor='wait')
         cinemizer(self.username)
         self.button.config(state=tk.NORMAL)
         self.button.config(text="Cinemize", cursor='arrow')
