@@ -149,12 +149,12 @@ description_txt += "Letterboxd"  # Make "Letterboxd" a hyperlink
 description_txt += " username:"
 
 #hyperlinking the prompt to letterboxd 
-description = tk.Text(master=frame, wrap="word", height=2, bg="#202830", fg="#FFFFFF",)
-description.insert(tk.END, description_txt)
-description.tag_configure("hyperlink", foreground="#03DF54", underline=True)
-description.tag_bind("hyperlink", "<Button-1>", open_letterboxd)
-description.tag_add("hyperlink", "1.11", "1.21")
-description.pack(pady=5)
+# Create a label for the prompt
+description = tk.Label(master=frame, text=description_txt, bg="#202830", fg="#FFFFFF")
+description.pack()
+
+# Bind the hyperlink behavior to the label
+description.bind("<Button-1>", open_letterboxd)
 
 # creating the entry for the profile
 username_entry = tk.Entry(fg="#41bbf2", bg="#202830", width=33, master=frame)
