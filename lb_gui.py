@@ -36,7 +36,7 @@ class Threader(threading.Thread):
 #creating a function to get a user's watchlist from Letterboxd and return it in list form to be used later
 def getting_user_watchlist(username):
 
-    # Create a dictionary where the movies will be stored
+    # Create a list where the movies will be stored
     movies = []
 
     # Get the total number of pages
