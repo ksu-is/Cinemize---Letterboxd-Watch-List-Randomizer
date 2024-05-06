@@ -40,7 +40,9 @@ Cinemize scrapes a user’s Letterboxd web page immediately after the user enter
 
 5) Optional: Leave your Letterboxd username in the text box and press Cinemize to get another movie. 
 
-#### note: click on "Letterboxd" in the "Enter your Letterboxd username:" to open Letterboxd
+#### Tips: 
+    - If Cinemize is stuck on the spinning wheel of death, exit the browser and re-run the GUI. 
+    - You can click on "Letterboxd" in the "Enter your Letterboxd username:" to open Letterboxd
 
 ## Credits
 
